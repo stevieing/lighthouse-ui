@@ -138,8 +138,8 @@ export default {
         }
         this.showDismissibleAlert = true
       } else {
-        this.items = resp.plateBarcodes.map((barcode) => ({
-          plate_barcode: barcode,
+        this.items = resp.plateBarcodes.map((plate_barcode) => ({
+          plate_barcode,
           selected: true
         }))
       }

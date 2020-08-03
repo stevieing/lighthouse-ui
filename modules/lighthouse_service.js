@@ -11,10 +11,15 @@ const handlePromise = async (promise) => {
   let rawResponse
   try {
     rawResponse = await promise
+
+    if (rawResponse.errors) {
+      return { success: false , ...rawResponse }
+    } else {
+      return { success: true , ...rawResponse.data }
+    }
   } catch (resp) {
-    rawResponse = resp.response.data
+    return { success: false, ...resp.response.data }
   }
-  return rawResponse
 }
 
 const createPlatesFromBarcodes = async (moduleOptions) => {

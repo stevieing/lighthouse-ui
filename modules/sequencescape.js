@@ -36,7 +36,7 @@ const createCherrypickBatch = async (plateBarcodes) => {
     )
     return {
       success: true,
-      data: response.data.data
+      ...response.data
     }
   } catch (error) {
     return {
