@@ -27,7 +27,7 @@ describe('lighthouse_service api', () => {
         plateBarcodes
       })
 
-      expect(result).toEqual([response])
+      expect(result).toEqual([{...response, success: false}])
       expect(mock).toHaveBeenCalledTimes(1)
       expect(mock).toHaveBeenNthCalledWith(
         1,
@@ -53,7 +53,7 @@ describe('lighthouse_service api', () => {
         plateBarcodes
       })
 
-      expect(result).toEqual([response])
+      expect(result).toEqual([{ ...response.data, success: true}])
       expect(mock).toHaveBeenCalledTimes(1)
       expect(mock).toHaveBeenNthCalledWith(
         1,
@@ -156,7 +156,7 @@ describe('lighthouse_service api', () => {
         plateBarcodes
       })
 
-      expect(result).toEqual([{...response1.data, success: true}, {...response2.data, success: true}])
+      expect(result).toEqual([{...response1, success: false}, {...response2.data, success: true}])
       expect(mock).toHaveBeenCalledTimes(2)
       expect(mock).toHaveBeenNthCalledWith(
         1,
